@@ -11,6 +11,8 @@ import java.nio.charset.Charset;
  * 论坛：http://bugstack.cn
  * 公众号：bugstack虫洞栈  ｛获取学习源码｝
  * Create by fuzhengwei on 2019/9/30
+ *
+ * BioServer中创建了BioServerHandler；BioClient中创建了BioClientHandler。
  */
 public class BioServer extends Thread {
 
@@ -29,7 +31,7 @@ public class BioServer extends Thread {
             System.out.println("itstack-demo-netty bio server start done. {关注公众号：bugstack虫洞栈 | 欢迎关注&获取源码}");
             while (true) {
                 Socket socket = serverSocket.accept();
-                BioServerHandler handler = new BioServerHandler(socket, Charset.forName("GBK"));
+                BioServerHandler handler = new BioServerHandler(socket, Charset.forName("UTF-8"));
                 handler.start();
             }
         } catch (IOException e) {
